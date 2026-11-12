@@ -21,6 +21,23 @@ a{color:#0565b4}a:hover{color:#06427a}
 .ck-row:last-child{border-bottom:0}
 .ck-tab:hover{border-color:#0a8fd0}
 .ck-wc:hover span{text-decoration:underline}
+.ck-opt:hover{border-color:#0a8fd0 !important}
+.ck-opt:focus-visible,.ck-reset:focus-visible{outline:3px solid #4fd1f2;outline-offset:2px}
+.ck-reset:hover{text-decoration:underline}
+@media (min-width:960px){.ck-summary{position:sticky;top:24px}}
+.ck-opt{display:flex;align-items:center;gap:14px;width:100%;box-sizing:border-box;min-height:64px;padding:14px 16px;text-align:left;font-family:inherit;color:#0f1b33;cursor:pointer;border-radius:14px;border:1.5px solid #dfe7f1;background:#ffffff}
+.ck-opt[aria-pressed="true"]{border-color:#0778c4;background:#eef7fd}
+.ck-mark{flex:none;width:22px;height:22px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;color:#ffffff;border:2px solid #9fb0c6;background:#ffffff}
+.ck-mark svg{visibility:hidden}
+.ck-radio{border-radius:50%}.ck-box{border-radius:6px}
+.ck-opt[aria-pressed="true"] .ck-mark{border-color:#0778c4;background:#0778c4}
+.ck-opt[aria-pressed="true"] .ck-mark svg{visibility:visible}
+.ck-optbody{display:flex;flex-direction:column;gap:3px;flex:1 1 auto;min-width:0}
+.ck-optname{font-size:15px;font-weight:700;line-height:1.3}
+.ck-note{font-size:12px;color:#5a6680;line-height:1.4}
+.ck-optprice{font-size:14px;font-weight:900;color:#0b3a7a;white-space:nowrap;text-align:right}
+#ck-lines li{display:flex;justify-content:space-between;gap:16px;font-size:14px;line-height:1.45}
+#ck-lines li span:first-child{color:#dbe7f5}#ck-lines li span:last-child{font-weight:700;white-space:nowrap}
 .ck-back:hover{border-color:#0a8fd0;background:#eef7fd;color:#06427a}
 .ck-btn:hover{filter:brightness(1.08)}
 .ck-ghost:hover{background:rgba(255,255,255,0.08)}
@@ -63,6 +80,7 @@ html{scroll-behavior:smooth}
 <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
 <a class="ck-btn" data-cta="discovery" href="https://appt.link/meet-with-ck-business-agency-bZn2B374/in-person-meeting" target="_blank" rel="noopener" style="background: linear-gradient(90deg, #0459a6, #0778c4); color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; padding: 17px 30px; border-radius: 999px; box-shadow: 0 10px 30px rgba(4,89,166,0.45);">Book a free discovery call</a>
 <a class="ck-ghost" href="#marketing" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.45);">View packages</a>
+<a class="ck-ghost" href="#estimate" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.45);">Price your next steps</a>
 </div>
 </div>
 <div style="max-width: 1100px; margin: 72px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.16); border-radius: 18px; overflow: hidden;">
@@ -561,14 +579,94 @@ html{scroll-behavior:smooth}
 </section>
 
 
-<!-- ===== CTA ===== -->
-<section style="padding: 100px 24px; background: linear-gradient(100deg, #0659b0 0%, #0a86cc 55%, #12a6d6 100%); color: #ffffff; text-align: center;">
-<div style="max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 24px;">
-<h2 style="margin: 0; font-size: clamp(32px, 4.5vw, 48px); line-height: 1.15; font-weight: 900; letter-spacing: -0.02em;">Not sure which option fits? Let's talk it through.</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #ffffff;">Book a complimentary 15–20 minute discovery call and we'll point you to the right package, retainer, or custom scope.</p>
-<div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
-<a class="ck-btn" data-cta="discovery" href="https://appt.link/meet-with-ck-business-agency-bZn2B374/in-person-meeting" target="_blank" rel="noopener" style="background: #ffffff; color: #06306b; text-decoration: none; font-size: 14px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; padding: 17px 30px; border-radius: 999px;">Book a discovery call</a>
-<a class="ck-ghost" data-cta="proposal" href="mailto:info@ckbusinessagency.com" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 30px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.75);">Request a proposal</a>
+<!-- ===== ESTIMATOR ===== -->
+<section id="estimate" style="padding: 100px 24px; background: #ffffff; border-top: 1px solid #e4eaf2;">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px;">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 780px;">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #0565b4;">Build your package</span>
+<h2 style="margin: 0; font-size: clamp(32px, 4.5vw, 48px); line-height: 1.12; font-weight: 900; letter-spacing: -0.02em;">Price your next steps</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3d4a63;">Select a package, a monthly retainer, website care, and any add-ons to see an instant estimate. Choose “None / Not applicable” for anything you don’t need, or click a selected option again to remove it.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 36px;">
+<fieldset style="border: 0; margin: 0; padding: 0; min-width: 0;">
+<legend style="padding: 0; margin: 0 0 14px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;"><span style="font-size: 19px; font-weight: 900; color: #0f1b33;">Brand &amp; Digital Launch package</span><span style="font-size: 13px; font-weight: 700; color: #5a6680;">Choose one</span></legend>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px;">
+<button type="button" class="ck-opt" data-group="pkg" data-id="starter" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Brand Strategy Starter</span><span class="ck-note">Strategy only · 1–2 weeks</span></span><span class="ck-optprice">$600</span></button>
+<button type="button" class="ck-opt" data-group="pkg" data-id="essentials" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Brand Essentials</span><span class="ck-note">Visual identity · 2–3 weeks</span></span><span class="ck-optprice">$1,500</span></button>
+<button type="button" class="ck-opt" data-group="pkg" data-id="presence" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Brand &amp; Digital Presence</span><span class="ck-note">Brand + 5-page website · 4–6 weeks</span></span><span class="ck-optprice">$3,500</span></button>
+<button type="button" class="ck-opt" data-group="pkg" data-id="launch" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Brand &amp; Business Launch</span><span class="ck-note">Brand + 8-page website + email · 6–8 weeks</span></span><span class="ck-optprice">$5,500</span></button>
+<button type="button" class="ck-opt" data-group="pkg" data-id="none" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">None / Not applicable</span></span><span class="ck-optprice"></span></button>
+</div></fieldset>
+<fieldset style="border: 0; margin: 0; padding: 0; min-width: 0;">
+<legend style="padding: 0; margin: 0 0 14px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;"><span style="font-size: 19px; font-weight: 900; color: #0f1b33;">Monthly marketing retainer</span><span style="font-size: 13px; font-weight: 700; color: #5a6680;">Choose one</span></legend>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px;">
+<button type="button" class="ck-opt" data-group="ret" data-id="mEss" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Marketing Essentials</span><span class="ck-note">1 channel · basic</span></span><span class="ck-optprice">$1,500 /mo</span></button>
+<button type="button" class="ck-opt" data-group="ret" data-id="mGrow" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Marketing Growth</span><span class="ck-note">2 channels · standard</span></span><span class="ck-optprice">$2,500 /mo</span></button>
+<button type="button" class="ck-opt" data-group="ret" data-id="mLife" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Marketing &amp; Lifecycle</span><span class="ck-note">3 channels · premium</span></span><span class="ck-optprice">$5,000 /mo</span></button>
+<button type="button" class="ck-opt" data-group="ret" data-id="mPaid" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Premium Lifecycle + Paid Media</span><span class="ck-note">Ad spend billed separately</span></span><span class="ck-optprice">$5,500 /mo</span></button>
+<button type="button" class="ck-opt" data-group="ret" data-id="mInt" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Integrated Growth Campaign</span><span class="ck-note">3-month engagement</span></span><span class="ck-optprice">$7,500 /mo</span></button>
+<button type="button" class="ck-opt" data-group="ret" data-id="none" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">None / Not applicable</span></span><span class="ck-optprice"></span></button>
+</div></fieldset>
+<fieldset style="border: 0; margin: 0; padding: 0; min-width: 0;">
+<legend style="padding: 0; margin: 0 0 14px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;"><span style="font-size: 19px; font-weight: 900; color: #0f1b33;">Website care</span><span style="font-size: 13px; font-weight: 700; color: #5a6680;">Choose one</span></legend>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px;">
+<button type="button" class="ck-opt" data-group="care" data-id="wCare" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Website Care</span><span class="ck-note">Maintenance &amp; support</span></span><span class="ck-optprice">$250 /mo</span></button>
+<button type="button" class="ck-opt" data-group="care" data-id="wGrow" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Website Growth</span><span class="ck-note">Up to 4 content requests</span></span><span class="ck-optprice">$500 /mo</span></button>
+<button type="button" class="ck-opt" data-group="care" data-id="wOpt" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Website Optimization</span><span class="ck-note">Up to 8 content requests</span></span><span class="ck-optprice">$850 /mo</span></button>
+<button type="button" class="ck-opt" data-group="care" data-id="none" aria-pressed="false"><span class="ck-mark ck-radio"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">None / Not applicable</span></span><span class="ck-optprice"></span></button>
+</div></fieldset>
+<fieldset style="border: 0; margin: 0; padding: 0; min-width: 0;">
+<legend style="padding: 0; margin: 0 0 14px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;"><span style="font-size: 19px; font-weight: 900; color: #0f1b33;">One-time add-ons</span><span style="font-size: 13px; font-weight: 700; color: #5a6680;">Choose any</span></legend>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px;">
+<button type="button" class="ck-opt" data-group="one" data-id="gtm" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">GTM Strategy Plan</span></span><span class="ck-optprice">$600</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="page" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Additional website page</span></span><span class="ck-optprice">$150–$300</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="logo" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Additional logo variation</span></span><span class="ck-optprice">$150</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="guide" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Expanded brand guidelines</span></span><span class="ck-optprice">$300–$500</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="card" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Business card design</span></span><span class="ck-optprice">$125</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="tmpl" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Social media template pack (5)</span></span><span class="ck-optprice">$250</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="pitch" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Pitch deck design</span></span><span class="ck-optprice">$400–$600</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="sig" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Email signature design</span></span><span class="ck-optprice">$75</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="lp" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Landing page design</span></span><span class="ck-optprice">$350–$750</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="copy" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Website copywriting</span><span class="ck-note">Per page</span></span><span class="ck-optprice">$150–$250</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="esetup" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Email marketing setup</span></span><span class="ck-optprice">$350–$600</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="ecom" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">E-commerce functionality</span><span class="ck-note">Starting price</span></span><span class="ck-optprice">From $750</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="ecamp" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Additional email campaign</span><span class="ck-note">Each</span></span><span class="ck-optprice">$150–$250</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="camp" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Additional campaign development</span></span><span class="ck-optprice">$750–$1,500</span></button>
+<button type="button" class="ck-opt" data-group="one" data-id="none" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">None / Not applicable</span></span><span class="ck-optprice"></span></button>
+</div></fieldset>
+<fieldset style="border: 0; margin: 0; padding: 0; min-width: 0;">
+<legend style="padding: 0; margin: 0 0 14px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;"><span style="font-size: 19px; font-weight: 900; color: #0f1b33;">Monthly add-ons</span><span style="font-size: 13px; font-weight: 700; color: #5a6680;">Choose any</span></legend>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px;">
+<button type="button" class="ck-opt" data-group="mon" data-id="social" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Social media management</span></span><span class="ck-optprice">$500–$1,000 /mo</span></button>
+<button type="button" class="ck-opt" data-group="mon" data-id="seo" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">SEO management</span></span><span class="ck-optprice">$500–$1,000 /mo</span></button>
+<button type="button" class="ck-opt" data-group="mon" data-id="ads" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Paid advertising management</span><span class="ck-note">Or 10–15% of ad spend</span></span><span class="ck-optprice">$500–$1,000 /mo</span></button>
+<button type="button" class="ck-opt" data-group="mon" data-id="auto" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Marketing automation management</span></span><span class="ck-optprice">$350–$750 /mo</span></button>
+<button type="button" class="ck-opt" data-group="mon" data-id="crm" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">CRM management and optimization</span></span><span class="ck-optprice">$350–$750 /mo</span></button>
+<button type="button" class="ck-opt" data-group="mon" data-id="analytics" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">Monthly analytics and reporting</span></span><span class="ck-optprice">$250–$400 /mo</span></button>
+<button type="button" class="ck-opt" data-group="mon" data-id="none" aria-pressed="false"><span class="ck-mark ck-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span class="ck-optbody"><span class="ck-optname">None / Not applicable</span></span><span class="ck-optprice"></span></button>
+</div></fieldset>
+</div>
+<aside class="ck-summary" aria-label="Your estimate" style="flex: 1 1 340px; min-width: 0; background: linear-gradient(160deg, #061a40 0%, #0a3a7d 100%); color: #ffffff; border-radius: 24px; padding: 32px 30px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 24px 60px rgba(6,26,64,0.25);">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 900;">Your estimate</h3>
+<button type="button" class="ck-reset" id="ck-reset" hidden style="background: none; border: 0; padding: 10px 4px; min-height: 44px; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 700; color: #8fdcf5;">Clear all</button>
+</div>
+<div aria-live="polite" style="display: flex; flex-direction: column; gap: 22px;">
+<ul id="ck-lines" hidden style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px;"></ul>
+<p id="ck-empty" style="margin: 0; font-size: 14px; line-height: 1.6; color: #c3d6ec;">Nothing selected yet. Choose options on the left to build your estimate.</p>
+<div style="border-top: 1px solid rgba(255,255,255,0.18); padding-top: 20px; display: flex; flex-direction: column; gap: 14px;">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;"><span style="font-size: 14px; color: #c3d6ec;">One-time investment</span><span style="font-size: 20px; font-weight: 900; white-space: nowrap;" id="ck-one">$0</span></div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px;"><span style="font-size: 14px; color: #c3d6ec;">Monthly</span><span style="font-size: 20px; font-weight: 900; white-space: nowrap;" id="ck-mon">$0 /mo</span></div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; background: rgba(255,255,255,0.08); border-radius: 14px; padding: 14px 16px;"><span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 14px; font-weight: 700;">First 3 months</span><span style="font-size: 12px; color: #c3d6ec;">One-time + 3 months of monthly services</span></span><span style="font-size: 24px; font-weight: 900; color: #8fdcf5; white-space: nowrap;" id="ck-three">$0</span></div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px;">
+<a class="ck-btn" id="ck-proposal" href="mailto:info@ckbusinessagency.com" style="text-align: center; text-decoration: none; font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 18px; border-radius: 999px; color: #061a40; background: #ffffff;">Request this proposal</a>
+<a class="ck-ghost" href="https://tally.so/r/np4j58" target="_blank" rel="noopener" style="text-align: center; text-decoration: none; font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; padding: 15px 18px; border-radius: 999px; color: #ffffff; border: 1.5px solid rgba(255,255,255,0.6);">Start my onboarding</a>
+</div>
+<p style="margin: 0; font-size: 12px; line-height: 1.6; color: #a9bfd9;">Estimates use starting prices; ranges reflect scope. Hourly consulting ($100/hr, or $75/hr for 2+ hours), ad spend, and third-party costs are not included. Final pricing is confirmed in your proposal.</p>
+</aside>
 </div>
 </div>
 </section>
@@ -619,8 +717,6 @@ const CTA_LINKS = {
   marketingGrowth:     "https://tally.so/r/np4j58",
   marketingLifecycle:  "https://tally.so/r/np4j58",
 
-  // "Request a proposal"
-  proposal: "mailto:info@ckbusinessagency.com"
 };
 
 document.querySelectorAll("[data-cta]").forEach(function (el) {
@@ -663,6 +759,94 @@ document.querySelectorAll("[data-cta]").forEach(function (el) {
       select(next); next.focus(); e.preventDefault();
     });
   });
+})();
+</script>
+<script>
+/* ===== Build-your-package estimator ===== */
+(function () {
+  var CK_EST_GROUPS = [{"id": "pkg", "title": "Brand & Digital Launch package", "single": true, "unit": "one", "items": [{"id": "starter", "name": "Brand Strategy Starter", "lo": 600, "hi": 600, "note": "Strategy only · 1–2 weeks"}, {"id": "essentials", "name": "Brand Essentials", "lo": 1500, "hi": 1500, "note": "Visual identity · 2–3 weeks"}, {"id": "presence", "name": "Brand & Digital Presence", "lo": 3500, "hi": 3500, "note": "Brand + 5-page website · 4–6 weeks"}, {"id": "launch", "name": "Brand & Business Launch", "lo": 5500, "hi": 5500, "note": "Brand + 8-page website + email · 6–8 weeks"}, {"id": "none", "name": "None / Not applicable", "lo": 0, "hi": 0, "note": "", "none": true}]}, {"id": "ret", "title": "Monthly marketing retainer", "single": true, "unit": "mo", "items": [{"id": "mEss", "name": "Marketing Essentials", "lo": 1500, "hi": 1500, "note": "1 channel · basic"}, {"id": "mGrow", "name": "Marketing Growth", "lo": 2500, "hi": 2500, "note": "2 channels · standard"}, {"id": "mLife", "name": "Marketing & Lifecycle", "lo": 5000, "hi": 5000, "note": "3 channels · premium"}, {"id": "mPaid", "name": "Premium Lifecycle + Paid Media", "lo": 5500, "hi": 5500, "note": "Ad spend billed separately"}, {"id": "mInt", "name": "Integrated Growth Campaign", "lo": 7500, "hi": 7500, "note": "3-month engagement"}, {"id": "none", "name": "None / Not applicable", "lo": 0, "hi": 0, "note": "", "none": true}]}, {"id": "care", "title": "Website care", "single": true, "unit": "mo", "items": [{"id": "wCare", "name": "Website Care", "lo": 250, "hi": 250, "note": "Maintenance & support"}, {"id": "wGrow", "name": "Website Growth", "lo": 500, "hi": 500, "note": "Up to 4 content requests"}, {"id": "wOpt", "name": "Website Optimization", "lo": 850, "hi": 850, "note": "Up to 8 content requests"}, {"id": "none", "name": "None / Not applicable", "lo": 0, "hi": 0, "note": "", "none": true}]}, {"id": "one", "title": "One-time add-ons", "single": false, "unit": "one", "items": [{"id": "gtm", "name": "GTM Strategy Plan", "lo": 600, "hi": 600, "note": ""}, {"id": "page", "name": "Additional website page", "lo": 150, "hi": 300, "note": ""}, {"id": "logo", "name": "Additional logo variation", "lo": 150, "hi": 150, "note": ""}, {"id": "guide", "name": "Expanded brand guidelines", "lo": 300, "hi": 500, "note": ""}, {"id": "card", "name": "Business card design", "lo": 125, "hi": 125, "note": ""}, {"id": "tmpl", "name": "Social media template pack (5)", "lo": 250, "hi": 250, "note": ""}, {"id": "pitch", "name": "Pitch deck design", "lo": 400, "hi": 600, "note": ""}, {"id": "sig", "name": "Email signature design", "lo": 75, "hi": 75, "note": ""}, {"id": "lp", "name": "Landing page design", "lo": 350, "hi": 750, "note": ""}, {"id": "copy", "name": "Website copywriting", "lo": 150, "hi": 250, "note": "Per page"}, {"id": "esetup", "name": "Email marketing setup", "lo": 350, "hi": 600, "note": ""}, {"id": "ecom", "name": "E-commerce functionality", "lo": 750, "hi": 750, "note": "Starting price", "from": true}, {"id": "ecamp", "name": "Additional email campaign", "lo": 150, "hi": 250, "note": "Each"}, {"id": "camp", "name": "Additional campaign development", "lo": 750, "hi": 1500, "note": ""}, {"id": "none", "name": "None / Not applicable", "lo": 0, "hi": 0, "note": "", "none": true}]}, {"id": "mon", "title": "Monthly add-ons", "single": false, "unit": "mo", "items": [{"id": "social", "name": "Social media management", "lo": 500, "hi": 1000, "note": ""}, {"id": "seo", "name": "SEO management", "lo": 500, "hi": 1000, "note": ""}, {"id": "ads", "name": "Paid advertising management", "lo": 500, "hi": 1000, "note": "Or 10–15% of ad spend"}, {"id": "auto", "name": "Marketing automation management", "lo": 350, "hi": 750, "note": ""}, {"id": "crm", "name": "CRM management and optimization", "lo": 350, "hi": 750, "note": ""}, {"id": "analytics", "name": "Monthly analytics and reporting", "lo": 250, "hi": 400, "note": ""}, {"id": "none", "name": "None / Not applicable", "lo": 0, "hi": 0, "note": "", "none": true}]}];
+  
+function ckMoney(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+function ckRange(lo, hi, from) {
+  if (from) return 'From ' + ckMoney(lo);
+  return lo === hi ? ckMoney(lo) : ckMoney(lo) + '–' + ckMoney(hi);
+}
+function ckTotal(lo, hi, from) {
+  var s = lo === hi ? ckMoney(lo) : ckMoney(lo) + '–' + ckMoney(hi);
+  return from ? s + '+' : s;
+}
+function ckToggle(group, sel, id) {
+  var next = Object.assign({}, sel);
+  if (group.single) { next[group.id] = next[group.id] === id ? null : id; return next; }
+  var m = Object.assign({}, next[group.id]);
+  if (m[id]) delete m[id];
+  else if (id === 'none') m = { none: true };
+  else { delete m.none; m[id] = true; }
+  next[group.id] = m;
+  return next;
+}
+function ckEstimate(groups, sel) {
+  var lines = [], skipped = [], oLo = 0, oHi = 0, mLo = 0, mHi = 0, oFrom = false;
+  groups.forEach(function (g) {
+    g.items.forEach(function (it) {
+      var on = g.single ? sel[g.id] === it.id : !!(sel[g.id] && sel[g.id][it.id]);
+      if (!on) return;
+      if (it.none) { skipped.push(g.title); return; }
+      var suffix = g.unit === 'mo' ? ' /mo' : '';
+      lines.push({ name: it.name, price: ckRange(it.lo, it.hi, it.from) + suffix });
+      if (g.unit === 'mo') { mLo += it.lo; mHi += it.hi; }
+      else { oLo += it.lo; oHi += it.hi; if (it.from) oFrom = true; }
+    });
+  });
+  var oneTime = ckTotal(oLo, oHi, oFrom);
+  var monthly = ckTotal(mLo, mHi, false) + ' /mo';
+  var threeMonth = ckTotal(oLo + 3 * mLo, oHi + 3 * mHi, oFrom);
+  var body = 'Hi CK Business Agency,\n\nI used your pricing page to build an estimate and would like a proposal for:\n\n';
+  lines.forEach(function (l) { body += '- ' + l.name + ' (' + l.price + ')\n'; });
+  if (!lines.length) body += '- (I have not selected options yet)\n';
+  if (skipped.length) body += '\nNot needed: ' + skipped.join(', ') + '\n';
+  body += '\nEstimated one-time: ' + oneTime + '\nEstimated monthly: ' + monthly + '\nFirst 3 months: ' + threeMonth + '\n\nName:\nCompany:\nPhone:\nBest time to connect:\n';
+  var href = 'mailto:info@ckbusinessagency.com?subject=' + encodeURIComponent('Proposal request from pricing page') + '&body=' + encodeURIComponent(body);
+  return { skipped: skipped, lines: lines, oneTime: oneTime, monthly: monthly, threeMonth: threeMonth, proposalHref: href, hasLines: lines.length > 0, empty: lines.length === 0 };
+}
+
+  var sel = { pkg: null, ret: null, care: null, one: {}, mon: {} };
+  var opts = Array.prototype.slice.call(document.querySelectorAll('.ck-opt'));
+  var single = {}, byId = {}; CK_EST_GROUPS.forEach(function (g) { single[g.id] = g.single; byId[g.id] = g; });
+  function render() {
+    opts.forEach(function (b) {
+      var g = b.getAttribute('data-group'), id = b.getAttribute('data-id');
+      var on = single[g] ? sel[g] === id : !!sel[g][id];
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    var est = ckEstimate(CK_EST_GROUPS, sel);
+    var ul = document.getElementById('ck-lines');
+    ul.innerHTML = '';
+    est.lines.forEach(function (l) {
+      var li = document.createElement('li');
+      var a = document.createElement('span'); a.textContent = l.name;
+      var b = document.createElement('span'); b.textContent = l.price;
+      li.appendChild(a); li.appendChild(b); ul.appendChild(li);
+    });
+    ul.hidden = !est.hasLines;
+    document.getElementById('ck-empty').hidden = est.hasLines;
+    document.getElementById('ck-reset').hidden = !est.hasLines;
+    document.getElementById('ck-one').textContent = est.oneTime;
+    document.getElementById('ck-mon').textContent = est.monthly;
+    document.getElementById('ck-three').textContent = est.threeMonth;
+    document.getElementById('ck-proposal').href = est.proposalHref;
+  }
+  opts.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var g = b.getAttribute('data-group'), id = b.getAttribute('data-id');
+      sel = ckToggle(byId[g], sel, id);
+      render();
+    });
+  });
+  document.getElementById('ck-reset').addEventListener('click', function () {
+    sel = { pkg: null, ret: null, care: null, one: {}, mon: {} }; render();
+  });
+  render();
 })();
 </script>
 </body>
